@@ -8,9 +8,8 @@ using System.Threading.Tasks;
 
 namespace BussinesLayer.Concrete
 {
-    public class CategoryManager
+    public class CategoryManager : ICategoryService
     {
-        GenericRepository<Category> repo = new GenericRepository<Category>();
         
         public List<Category> GetAllBL()
         {
