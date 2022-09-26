@@ -1,0 +1,58 @@
+﻿@model MVCproje.ViewModels.TestViewModel
+
+@{
+    ViewBag.Title = "Statistic";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<style>
+    h1 {
+        width: 40px;
+        margin: auto;
+    }
+
+    h2 {
+        margin: auto;
+    }
+
+    div.HND {
+        width: 400px;
+        height: 150px;
+    }
+</style>
+
+
+<div class="HND" style="background-color:coral">
+    <h2>Ödev 2- Yazılım kategorisine ait başlık sayısı</h2>
+    <h1> @Model.TestHeadings.Count(x => x.CategoryID == 10)</h1>
+</div>
+<br />
+<div class="HND" style="background-color:chocolate">
+    <h2>Ödev 1 - Toplam Kategori Sayısı</h2>
+    <h1>@Model.TestCategories.Count()</h1>
+</div>
+<br />
+<div class="HND" style="background-color:darksalmon">
+    <h2>Ödev 3 - Adında a harfi geçen yazar sayısı</h2>
+    <h1>@Model.TestWriter.Count(x => x.WriterName.Contains("a"))</h1>
+</div>
+<br />
+<div class="HND" style="background-color:red">
+    <h2>Ödev 4 - En fazla Başlığa sahip kategori adı</h2>
+    <h1 style="margin-left:100px"> Yapamadım</h1>
+    </div>
+<br />
+    <div class="HND" style="background-color:antiquewhite">
+        <h2>Ödev 5 - Durumu true olanlar ile false olanlar arasındaki fark</h2>
+
+        @{
+            var result = Model.TestCategories.Count(x => x.CategoryStatus == true) - Model.TestCategories.Count(x => x.CategoryStatus == false);
+            <h1>@result</h1>
+        }
+    </div>
+
+
+
+
+
+
+
